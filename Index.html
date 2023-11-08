@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<head>
+    <title>
+        After School Club
+    </title>
+    <script src="https://unpkg.com/vue@2.7.8/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+    <div id="app">
+
+        <header>
+            <div class="container1">
+                <div class="sub-container1">
+                    <h1 v-text="sitename"></h1>
+                    <div class="sorting-controls">
+                        <label for="sortAttribute">Sort by:</label>
+                        <select id="sortAttribute" v-model="sortAttribute">
+                            <option value="name">Subject</option>
+                            <option value="location">Location</option>
+                            <option value="price">Price</option>
+                            <option value="availableInventory">Spaces</option>
+                        </select>
+                        <label for="sortOrder">Sort Order:</label>
+                        <select id="sortOrder" v-model="sortOrder">
+                            <option value="asc">Ascending</option>
+                            <option value="desc">Descending</option>
+                        </select>
+                    </div>
+                    <div class="search-controls">
+                        <label for="searchText">Search:</label>
+                        <input type="text" id="searchText" v-model="searchText">
+                    </div>
+                    <button class="checkout" @click="showCheckout" v-bind:disabled="cartItemCount === 0">
+                        <template v-if="cartItemCount > 0">
+                            {{ cartItemCount }}
+                        </template>
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        Checkout
+                    </button>
+                    <div class="message" v-show="showMessage">{{ message }}</div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="subject-container" v-if="showsubject">
+                <div class="subject-box" v-for="subject in sortedSubjects" :key="subject.id">
+                    <figure>
+                        <img v-bind:src="subject.image">
+                    </figure>
+                    <h2 v-text="subject.name"></h2>
+                    <p v-text="subject.location"></p>
+                    <p>price: £{{subject.price}}</p>
+                    <p>
+                        <span v-if="subject.availableInventory === cartCount(subject.id)"> Classes Booked!</span>
+                        <span v-else-if="subject.availableInventory - cartCount(subject.id) < 5">
+                            Only {{subject.availableInventory - cartCount(subject.id)}} left!</span>
+                        <span v-else>Book Classes now!</span>
+                    </p>
+                    <button class="button" v-on:click="addToCart(subject)" v-if="canAddToCart(subject)">Add to
+                        cart</button>
+                    <button class="disabled" v-else>Add to cart</button>
+                </div>
+            </div>
+            <div class="checkout-page" v-if="!showsubject">
+                <p>This is the checkout page</p>
+                <h2>Selected Subjects</h2>
+                <ul>
+                    <li v-for="(subject, index) in cartSubjects" :key="'cart-' + subject.id + '-' + index">
+                        <img :src="subject.image" alt="Subject Image">
+                        <p><strong>Name:</strong> {{ subject.name }}</p>
+                        <p><strong>Location:</strong> {{ subject.location }}</p>
+                        <p><strong>Price:</strong> £{{ subject.price }}</p>
+                        <button @click="removeSubjectFromCart(subject.id)">Remove</button>
+                        <button @click="addToCartFromCheckout(subject.id)">Add</button>
+                    </li>
+                </ul>
+                <h2>Checkout</h2>
+                <div class="checkout-section">
+                    <p>
+                        <strong>City:</strong>
+                        <input v-model="order.city" @input="validateCity" />
+                        <span class="error-message" :class="{ 'error': !cityValid }">{{ errorMessages.city }}</span>
+                    </p>
+
+                    <p>
+                        <strong>State:</strong>
+                        <select v-model="order.state">
+                            <option disabled value="">State</option>
+                            <option v-for="state in states" v-bind:value="state">
+                                {{state}}
+                            </option>
+                        </select>
+                    </p>
+                    <p>
+                        <strong>Zip/Postal Code:</strong>
+                        <input v-model="order.zip" />
+                    </p>
+                    <p>
+                        <input type="checkbox" id="gift" value="true" v-model="order.gift"
+                            v-bind:true-value="order.sendGift" v-bind:false-value="order.dontSendGift">
+                        <label for="gift">Ship as a Gift?</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="home" value="Home" v-model="order.method">
+                        <label for="home">Home</label>
+                        <input type="radio" id="business" value="Business" v-model="order.method">
+                        <label for="business">Business</label>
+                    </p>
+                </div>
+                <div class="order-information-section">
+                    <h2>Order Information</h2>
+                    <br>
+                    <p>First Name: {{order.firstName}}</p>
+                    <br>
+                    <p>Last Name: {{order.lastName}}</p>
+                    <br>
+                    <p>Phone Numner: {{order.PhoneNumber}}</p>
+                    <br>
+                    <p>Address: {{order.address}}</p>
+                    <br>
+                    <p>City: {{order.city}}</p>
+                    <br>
+                    <p>State: {{order.state}}</p>
+                    <br>
+                    <p>Zip: {{order.zip}}</p>
+                    <br>
+                    <p>Gift?: {{order.gift}}</p>
+                    <br>
+                    <p>Method: {{order.method}}</p>
+                    <br>
+                </div>
+
+                <div class="button-container">
+                    <button class="button-checkout" v-on:click="submitForm">Place Order</button>
+                </div>
+                <br>
+            </div>
+
+    </div>
+
+    </main>
+    </div>
+
+    <script type="text/javascript" src="./javascript/app.js"></script>
+
+    <footer>
+        <div class="container1">
+            <p>@ 2023 After School Club</p>
+        </div>
+    </footer>
+
+</body>

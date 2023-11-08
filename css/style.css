@@ -1,0 +1,283 @@
+/* Reset some default styles for better consistency */
+body,
+h1,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Basic page styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ff9a8a93;
+}
+
+.container1 {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.sub-container1 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header styles */
+header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  margin: 20px 0;
+}
+
+/* Main content styles */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Create a grid layout for subject boxes */
+.subject-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.subject-box {
+  background-color: white;
+  border: 2px solid black;
+  box-shadow: 0 2px 8px rgb(64, 47, 255);
+  margin: 10px 0;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  width: calc(25% - 20px); /* 25% width to display 4 boxes in a row */
+  box-sizing: border-box; /* Includes padding in the width calculation */
+  transition: transform 0.2s ease; /* Add a smooth transition for the hover effect */
+}
+
+.subject-box:hover {
+  transform: scale(1.05); /* Enlarge the box slightly on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
+}
+
+.subject-box h2 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.subject-box p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.subject-box figure {
+  margin: 0;
+}
+
+.subject-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Style links */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Hover effect for links */
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .subject-box {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .subject-box {
+    width: 100%;
+  }
+}
+
+/* Existing CSS code... */
+
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+footer p {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Basic button style */
+.button,
+.checkout {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #ff9a8a93;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+/* Hover effect */
+.button:hover,
+.checkout:hover {
+  background-color: blue;
+}
+
+/* Disabled state */
+.disabled {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.checkout {
+  margin-left: 70%;
+  margin-bottom: 2.5%;
+}
+
+.checkout i {
+  padding: 8px 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Create a grid layout for subject boxes */
+.checkout-page ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.checkout-page ul li {
+  background-color: white;
+  border: 2px solid black;
+  box-shadow: 0 2px 8px rgb(64, 47, 255);
+  margin: 10px 0;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  width: calc(50% - 20px); /* 25% width to display 4 boxes in a row */
+  box-sizing: border-box; /* Includes padding in the width calculation */
+  transition: transform 0.2s ease; /* Add a smooth transition for the hover effect */
+}
+
+.checkout-page img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 15px;
+}
+/* Style the Checkout section container */
+.checkout-section {
+  background-color: #f2f2f2;
+  border: 1px solid rgb(64, 47, 255);
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Style the Order Information section container */
+.order-information-section {
+  background-color: #f2f2f2;
+  border: 1px solid rgb(64, 47, 255);
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Add space between the sections */
+.checkout-section + .order-information-section {
+  margin-top: 20px;
+}
+/* Style the labels to be left-aligned */
+.checkout-section label,
+.order-information-section label {
+  display: inline-block;
+  width: 150px; /* Adjust the width as needed for your design */
+  text-align: left;
+  padding-right: 10px;
+  margin-bottom: 5px;
+}
+
+/* Style the input fields to be left-aligned */
+.checkout-section input,
+.order-information-section input,
+.checkout-section select,
+.order-information-section select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid rgb(64, 47, 255);
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+/* Style other form elements (checkboxes, radio buttons, etc.) */
+.checkout-section input[type="checkbox"],
+.order-information-section input[type="checkbox"],
+.checkout-section input[type="radio"],
+.order-information-section input[type="radio"] {
+  margin-right: 5px;
+}
+
+.checkout-page .button-container {
+  text-align: center; /* Center align the button within the container */
+}
+
+.checkout-page .button-checkout {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(64, 47, 255);
+  color: #fff;
+  transition: background-color 0.3s ease;
+  display: inline-block; /* Keep the button inline for horizontal centering */
+}
+
+/* Hover effect */
+.checkout-page .button-checkout:hover {
+  background-color: black;
+}
+
+.error-message {
+  color: red;
+}
