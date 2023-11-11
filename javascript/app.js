@@ -8,6 +8,7 @@ let webstore = new Vue({
     searchText: "",
     showMessage: false,
     isFormValid: false,
+    message: "Cart is Empty, Add items to view your page",
     states: ["Alabama", "Alaska", "Arizonz", "California", "Newvada"],
     order: {
       firstName: "",
@@ -16,6 +17,7 @@ let webstore = new Vue({
       city: "",
       zip: "",
       state: "",
+      // lert
       method: "",
       sendGift: "Send as a gift",
       dontSendGift: "Do not send as a Gift",
