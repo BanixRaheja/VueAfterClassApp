@@ -106,7 +106,7 @@
 
                     <p>
                         <strong>State:</strong>
-                        <select v-model="order.state">
+                        <select id="state" v-model="order.state">
                             <option disabled value="">State</option>
                             <option v-for="state in states" v-bind:value="state">
                                 {{state}}
