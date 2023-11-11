@@ -83,6 +83,29 @@
                 <h2>Checkout</h2>
                 <div class="checkout-section">
                     <p>
+                        <strong>First Name:</strong>
+                        <input v-model="order.firstName" @input="validateFirstName" />
+                        <span class="error-message" :class="{ 'error': !firstNameValid }">{{ errorMessages.firstName
+                            }}</span>
+                    </p>
+                    <p>
+                        <strong>Last Name:</strong>
+                        <input v-model="order.lastName" @input="validateLastName" />
+                        <span class="error-message" :class="{ 'error': !lastNameValid }">{{ errorMessages.lastName
+                            }}</span>
+                    </p>
+                    <p>
+                        <strong>Phone Number:</strong>
+                        <input v-model="order.PhoneNumber" @input="validatePhoneNumber" />
+                        <span class="error-message" :class="{ 'error': !phoneNumberValid }">{{ errorMessages.PhoneNumber
+                            }}</span>
+                    </p>
+
+                    <p>
+                        <strong>Address:</strong>
+                        <input v-model="order.address" />
+                    </p>
+                    <p>
                         <strong>City:</strong>
                         <input v-model="order.city" @input="validateCity" />
                         <span class="error-message" :class="{ 'error': !cityValid }">{{ errorMessages.city }}</span>
