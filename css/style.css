@@ -153,7 +153,7 @@ footer p {
 /* Disabled state */
 .disabled,
 .checkout:disabled {
-  background-color: #ccc;
+  background-color: rgb(149, 135, 135)5b5;
   cursor: not-allowed;
   /* Remove hover effect for disabled state */
   pointer-events: none;
