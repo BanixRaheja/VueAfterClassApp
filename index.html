@@ -84,24 +84,24 @@
                 <div class="checkout-section">
                     <p>
                         <strong>Name:</strong>
-                        <input v-model="order.firstName" @input="validateFirstName" />
+                        <input type="text" id="firstName" v-model="order.firstName" @input="validateFirstName" />
                         <span class="error-message" :class="{ 'error': !firstNameValid }">{{ errorMessages.firstName
                             }}</span>
                     </p>
                     <p>
                         <strong>Phone Number:</strong>
-                        <input v-model="order.PhoneNumber" @input="validatePhoneNumber" />
+                        <input type="number" id="PhoneNumber" v-model="order.PhoneNumber" @input="validatePhoneNumber" />
                         <span class="error-message" :class="{ 'error': !phoneNumberValid }">{{ errorMessages.PhoneNumber
                             }}</span>
                     </p>
 
                     <p>
                         <strong>Address:</strong>
-                        <input v-model="order.address" />
+                        <input type="text" id="address" v-model="order.address" />
                     </p>
                     <p>
                         <strong>City:</strong>
-                        <input v-model="order.city" />
+                        <input type="text" id="city" v-model="order.city" />
                     </p>
 
                     <p>
@@ -115,7 +115,7 @@
                     </p>
                     <p>
                         <strong>Zip/Postal Code:</strong>
-                        <input v-model="order.zip" />
+                        <input type="text" id="order" v-model="order.zip" />
                     </p>
                     <p>
                         <input type="checkbox" id="gift" value="true" v-model="order.gift"
