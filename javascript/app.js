@@ -7,36 +7,28 @@ let webstore = new Vue({
     sortOrder: "asc", //Default
     searchText: "",
     showMessage: false,
-    message: "Cart is Empty, Add items to view your page",
+    isFormValid: false,
     states: ["Alabama", "Alaska", "Arizonz", "California", "Newvada"],
     order: {
       firstName: "",
-      lastName: "",
       PhoneNumber: "",
       address: "",
       city: "",
       zip: "",
       state: "",
-      // lert
       method: "",
       sendGift: "Send as a gift",
       dontSendGift: "Do not send as a Gift",
       firstNameValid: true,
-      lastNameValid: true,
       phoneNumberValid: true,
-      cityValid: true,
     },
 
     errorMessages: {
       firstName: "",
-      lastName: "",
       PhoneNumber: "",
-      city: "",
     },
     firstNameValid: true,
-    lastNameValid: true,
     phoneNumberValid: true,
-    cityValid: true,
 
     subject: lesson ,
     cart: [], //array to store items in shopping cart
@@ -105,16 +97,7 @@ let webstore = new Vue({
         this.errorMessages.firstName = "";
         this.firstNameValid = true;
       }
-    },
-
-    validateLastName() {
-      if (!/^[A-Za-z]+$/.test(this.order.lastName)) {
-        this.errorMessages.lastName = "Please enter letters only";
-        this.lastNameValid = false;
-      } else {
-        this.errorMessages.lastName = "";
-        this.lastNameValid = true;
-      }
+      this.updateFormValidation();
     },
 
     validatePhoneNumber() {
@@ -126,35 +109,24 @@ let webstore = new Vue({
         this.errorMessages.PhoneNumber = "";
         this.phoneNumberValid = true;
       }
+      this.updateFormValidation();
     },
 
-    validateCity() {
-      if (!/^[A-Za-z]+$/.test(this.order.city)) {
-        this.errorMessages.city = "Please enter letters only";
-        this.cityValid = false;
-      } else {
-        this.errorMessages.city = "";
-        this.cityValid = true;
-      }
+    updateFormValidation(){
+      this.isFormValid =
+      this.firstNameValid &&
+      this.phoneNumberValid &&
+      this.order.firstName &&
+      this.order.PhoneNumber;
     },
 
     submitForm() {
-      if (
-        this.firstNameValid &&
-        this.lastNameValid &&
-        this.phoneNumberValid &&
-        this.cityValid &&
-        this.order.firstName &&
-        this.order.lastName &&
-        this.order.PhoneNumber &&
-        this.order.city
-      ) {
+      if (this.isFormValid) {
         alert("Order Submitted!");
         // Reset the cart and order form data
         this.cart = [];
         this.order = {
           firstName: "",
-          lastName: "",
           PhoneNumber: "",
           address: "",
           city: "",
@@ -164,9 +136,7 @@ let webstore = new Vue({
           sendGift: "Send as a gift",
           dontSendGift: "Do not send as a Gift",
           firstNameValid: true,
-          lastNameValid: true,
           phoneNumberValid: true,
-          cityValid: true,
         };
         this.showsubject = true;
         for (let i = 0; i < this.subject.length; i++) {

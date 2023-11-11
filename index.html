@@ -83,15 +83,9 @@
                 <h2>Checkout</h2>
                 <div class="checkout-section">
                     <p>
-                        <strong>First Name:</strong>
+                        <strong>Name:</strong>
                         <input v-model="order.firstName" @input="validateFirstName" />
                         <span class="error-message" :class="{ 'error': !firstNameValid }">{{ errorMessages.firstName
-                            }}</span>
-                    </p>
-                    <p>
-                        <strong>Last Name:</strong>
-                        <input v-model="order.lastName" @input="validateLastName" />
-                        <span class="error-message" :class="{ 'error': !lastNameValid }">{{ errorMessages.lastName
                             }}</span>
                     </p>
                     <p>
@@ -139,9 +133,7 @@
                 <div class="order-information-section">
                     <h2>Order Information</h2>
                     <br>
-                    <p>First Name: {{order.firstName}}</p>
-                    <br>
-                    <p>Last Name: {{order.lastName}}</p>
+                    <p>Name: {{order.firstName}}</p>
                     <br>
                     <p>Phone Numner: {{order.PhoneNumber}}</p>
                     <br>
@@ -160,7 +152,7 @@
                 </div>
 
                 <div class="button-container">
-                    <button class="button-checkout" v-on:click="submitForm">Place Order</button>
+                    <button class="button-checkout" v-on:click="submitForm" :disabled="!isFormValid">Place Order</button>
                 </div>
                 <br>
             </div>
