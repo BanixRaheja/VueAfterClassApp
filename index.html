@@ -101,8 +101,7 @@
                     </p>
                     <p>
                         <strong>City:</strong>
-                        <input v-model="order.city" @input="validateCity" />
-                        <span class="error-message" :class="{ 'error': !cityValid }">{{ errorMessages.city }}</span>
+                        <input v-model="order.city" />
                     </p>
 
                     <p>
