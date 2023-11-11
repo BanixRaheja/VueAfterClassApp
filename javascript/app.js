@@ -38,7 +38,7 @@ let webstore = new Vue({
     phoneNumberValid: true,
     cityValid: true,
 
-    subject: [lesson ],
+    subject: lesson ,
     cart: [], //array to store items in shopping cart
   },
   methods: {
