@@ -101,7 +101,7 @@
                     </p>
                     <p>
                         <strong>Phone Number:</strong>
-                        <input type="number" id="PhoneNumber" v-model="order.PhoneNumber" @input="validatePhoneNumber" />
+                        <input id="PhoneNumber" v-model="order.PhoneNumber" @input="validatePhoneNumber" />
                         <span class="error-message" :class="{ 'error': !phoneNumberValid }">{{ errorMessages.PhoneNumber
                             }}</span>
                     </p>
