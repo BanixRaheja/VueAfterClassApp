@@ -1,7 +1,7 @@
 let webstore = new Vue({
   el: "#app",
   data: {
-    sitename: "Vue.js After Classes Depot",
+    sitename: " After Classes Depot",
     showsubject: true,
     sortAttribute: "Price",
     sortOrder: "asc", //Default
@@ -9,7 +9,6 @@ let webstore = new Vue({
     searchText: "",
     showMessage: false,
     isFormValid: false,
-    message: "Cart is Empty, Add items to view your page",
     states: ["Alabama", "Alaska", "Arizonz", "California", "Newvada"],
     order: {
       firstName: "",
@@ -33,7 +32,7 @@ let webstore = new Vue({
     firstNameValid: true,
     phoneNumberValid: true,
 
-    subject: lesson ,
+    subject: lesson,
     cart: [], //array to store items in shopping cart
   },
   methods: {
@@ -121,14 +120,14 @@ let webstore = new Vue({
       this.updateFormValidation();
     },
 
-    updateFormValidation(){
+    updateFormValidation() {
       this.isFormValid =
-      this.firstNameValid &&
-      this.phoneNumberValid &&
-      this.order.firstName &&
-      this.order.PhoneNumber;
+        this.firstNameValid &&
+        this.phoneNumberValid &&
+        this.order.firstName &&
+        this.order.PhoneNumber;
     },
-   
+
 
     submitForm() {
       if (this.isFormValid) {
@@ -243,15 +242,15 @@ let webstore = new Vue({
 
     cartSubjects: function () {
       const selectedCounts = {};
-    
+
       // Count the occurrences of each subject in the cart
       this.cart.forEach((itemId) => {
         selectedCounts[itemId] = (selectedCounts[itemId] || 0) + 1;
       });
-    
+
       // Create an array of unique subjects with their counts
       const uniqueSubjects = [...new Set(this.cart)];
-    
+
       // Map the unique subjects to include count information
       return uniqueSubjects.map((itemId) => {
         const subject = this.subject.find((subject) => subject.id === itemId);
@@ -263,6 +262,6 @@ let webstore = new Vue({
         };
       });
     },
-    
+
   },
 });

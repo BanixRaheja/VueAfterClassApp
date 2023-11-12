@@ -34,7 +34,7 @@
                     </div>
                     <div class="sorting-message">
                         {{ sortingMessage }}
-                      </div>
+                    </div>
                     <div class="search-controls">
                         <label for="searchText">Search:</label>
                         <input type="text" id="searchText" v-model="searchText">
@@ -46,7 +46,6 @@
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         Checkout
                     </button>
-                    <div class="message" v-show="showMessage">{{ message }}</div>
                 </div>
             </div>
         </header>
@@ -73,23 +72,24 @@
                     <div>
                         <span v-for='n in subject.rating'>★</span>
                         <span v-for='n in 5 - subject.rating'>☆</span>
-                      </div>
                     </div>
+                </div>
             </div>
             <div class="checkout-page" v-if="!showsubject">
                 <div class="checkout-welcome-message">
-                <p>Welcome to the Checkout Page</p>
-                <h2>Selected Subjects</h2>
-                <p v-if="cartItemCount > 0">You have selected {{ cartItemCount }} item{{ cartItemCount !== 1 ? 's' : '' }}.</p>
-            </div>
+                    <p>Welcome to the Checkout Page</p>
+                    <h2>Selected Subjects</h2>
+                    <p v-if="cartItemCount > 0">You have selected {{ cartItemCount }} item{{ cartItemCount !== 1 ? 's' :
+                        '' }}.</p>
+                </div>
                 <ul>
                     <li v-for="(subject, index) in cartSubjects" :key="'cart-' + subject.id + '-' + index">
                         <img :src="subject.image" alt="Subject Image">
                         <p><strong>Name:</strong> {{ subject.name }}</p>
                         <p><strong>Location:</strong> {{ subject.location }}</p>
                         <p><strong>Price:</strong> £{{ subject.Price }}</p>
-                        <p><strong>Spaces Available:</strong> {{ subject.spaces }}</p> 
-                         <p><strong>Selected Classes:</strong> {{ subject.selectedCount }}</p>
+                        <p><strong>Spaces Available:</strong> {{ subject.spaces }}</p>
+                        <p><strong>Selected Classes:</strong> {{ subject.selectedCount }}</p>
                         <button @click="removeSubjectFromCart(subject.id)">Remove</button>
                         <button @click="addToCartFromCheckout(subject.id)">Add</button>
                     </li>
@@ -111,7 +111,7 @@
 
                     <p>
                         <strong>Address:</strong>
-                        <input type="text" id="address" v-model="order.address"  autocomplete="address"/>
+                        <input type="text" id="address" v-model="order.address" autocomplete="address" />
                     </p>
                     <p>
                         <strong>City:</strong>
@@ -165,7 +165,8 @@
                 </div>
 
                 <div class="button-container">
-                    <button class="button-checkout" v-on:click="submitForm" :disabled="!isFormValid">Place Order</button>
+                    <button class="button-checkout" v-on:click="submitForm" :disabled="!isFormValid">Place
+                        Order</button>
                 </div>
                 <br>
             </div>

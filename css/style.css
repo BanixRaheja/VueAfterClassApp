@@ -60,14 +60,19 @@ h1 {
   padding: 20px;
   text-align: center;
   border-radius: 5px;
-  width: calc(25% - 20px); /* 25% width to display 4 boxes in a row */
-  box-sizing: border-box; /* Includes padding in the width calculation */
-  transition: transform 0.2s ease; /* Add a smooth transition for the hover effect */
+  width: calc(25% - 20px);
+  /* 25% width to display 4 boxes in a row */
+  box-sizing: border-box;
+  /* Includes padding in the width calculation */
+  transition: transform 0.2s ease;
+  /* Add a smooth transition for the hover effect */
 }
 
 .subject-box:hover {
-  transform: scale(1.05); /* Enlarge the box slightly on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
+  transform: scale(1.05);
+  /* Enlarge the box slightly on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Add a subtle shadow on hover */
 }
 
 .subject-box h2 {
@@ -144,6 +149,7 @@ footer p {
   color: #fff;
   transition: background-color 0.3s ease;
 }
+
 /* Hover effect */
 .button:hover,
 .checkout:hover {
@@ -185,9 +191,12 @@ footer p {
   padding: 20px;
   text-align: center;
   border-radius: 5px;
-  width: calc(50% - 20px); /* 25% width to display 4 boxes in a row */
-  box-sizing: border-box; /* Includes padding in the width calculation */
-  transition: transform 0.2s ease; /* Add a smooth transition for the hover effect */
+  width: calc(50% - 20px);
+  /* 25% width to display 4 boxes in a row */
+  box-sizing: border-box;
+  /* Includes padding in the width calculation */
+  transition: transform 0.2s ease;
+  /* Add a smooth transition for the hover effect */
 }
 
 .checkout-page img {
@@ -195,6 +204,7 @@ footer p {
   height: auto;
   border-radius: 15px;
 }
+
 /* Style the Checkout section container */
 .checkout-section {
   background-color: #f2f2f2;
@@ -222,7 +232,8 @@ footer p {
 .checkout-welcome-message p {
   font-size: 24px;
   font-weight: bold;
-  font-family: 'Roboto', sans-serif; /* Apply the Google Font */
+  font-family: 'Roboto', sans-serif;
+  /* Apply the Google Font */
   position: relative;
   display: inline-block;
 }
@@ -246,21 +257,23 @@ footer p {
   0% {
     background-position: 100% 0;
   }
+
   100% {
     background-position: -100% 0;
   }
 }
 
-
 /* Add space between the sections */
-.checkout-section + .order-information-section {
+.checkout-section+.order-information-section {
   margin-top: 20px;
 }
+
 /* Style the labels to be left-aligned */
 .checkout-section label,
 .order-information-section label {
   display: inline-block;
-  width: 150px; /* Adjust the width as needed for your design */
+  width: 150px;
+  /* Adjust the width as needed for your design */
   text-align: left;
   padding-right: 10px;
   margin-bottom: 5px;
@@ -289,7 +302,8 @@ footer p {
 }
 
 .checkout-page .button-container {
-  text-align: center; /* Center align the button within the container */
+  text-align: center;
+  /* Center align the button within the container */
 }
 
 .checkout-page .button-checkout {
@@ -304,7 +318,8 @@ footer p {
   background-color: rgb(64, 47, 255);
   color: #fff;
   transition: background-color 0.3s ease;
-  display: inline-block; /* Keep the button inline for horizontal centering */
+  display: inline-block;
+  /* Keep the button inline for horizontal centering */
 }
 
 /* Hover effect */
@@ -318,7 +333,8 @@ footer p {
 
 /* Updated button style for disabled state */
 .button-checkout:disabled {
-  background-color: #ccc; /* Set a different color for the disabled state */
+  background-color: #ccc;
+  /* Set a different color for the disabled state */
   cursor: not-allowed;
   /* Remove hover effect for disabled state */
   pointer-events: none;
@@ -326,6 +342,7 @@ footer p {
 
 /* Remove hover effect */
 .button-checkout:hover:disabled {
-  background-color: #ccc; /* Set the same color as the disabled state for consistency */
+  background-color: #ccc;
+  /* Set the same color as the disabled state for consistency */
   /* Additional styles for consistency can be added here */
 }
