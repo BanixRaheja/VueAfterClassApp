@@ -110,9 +110,9 @@ let webstore = new Vue({
     },
 
     validatePhoneNumber() {
-      if (!/^[0-9]+$/.test(this.order.PhoneNumber)) {
+      if (!/^((\+44)|(0)) ?\d{4} ?\d{6}$/.test(this.order.PhoneNumber)) {
         this.errorMessages.PhoneNumber =
-          "Please enter numbers only for the phone number.";
+          "Please enter phone number in UK Format, starts with 0 or +44.";
         this.phoneNumberValid = false;
       } else {
         this.errorMessages.PhoneNumber = "";
