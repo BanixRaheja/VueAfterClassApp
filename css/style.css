@@ -150,10 +150,10 @@ footer p {
   background-color: blue;
 }
 
+
 /* Disabled state */
-.disabled,
 .checkout:disabled {
-  background-color: rgb(149, 135, 135)5b5;
+  background-color: rgba(237, 226, 227, 0.415);
   cursor: not-allowed;
   /* Remove hover effect for disabled state */
   pointer-events: none;
@@ -275,4 +275,18 @@ footer p {
 
 .error-message {
   color: red;
+}
+
+/* Updated button style for disabled state */
+.button-checkout:disabled {
+  background-color: #ccc; /* Set a different color for the disabled state */
+  cursor: not-allowed;
+  /* Remove hover effect for disabled state */
+  pointer-events: none;
+}
+
+/* Remove hover effect */
+.button-checkout:hover:disabled {
+  background-color: #ccc; /* Set the same color as the disabled state for consistency */
+  /* Additional styles for consistency can be added here */
 }

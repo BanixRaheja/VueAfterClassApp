@@ -19,18 +19,21 @@
                     <h1 v-text="sitename"></h1>
                     <div class="sorting-controls">
                         <label for="sortAttribute">Sort by:</label>
-                        <select id="sortAttribute" v-model="sortAttribute">
+                        <select id="sortAttribute" v-model="sortAttribute" @change="updateSortingMessage">
                             <option value="name">Subject</option>
                             <option value="location">Location</option>
-                            <option value="price">Price</option>
+                            <option value="Price">Price</option>
                             <option value="availableInventory">Spaces</option>
                         </select>
                         <label for="sortOrder">Sort Order:</label>
-                        <select id="sortOrder" v-model="sortOrder">
+                        <select id="sortOrder" v-model="sortOrder" @change="updateSortingMessage">
                             <option value="asc">Ascending</option>
                             <option value="desc">Descending</option>
                         </select>
                     </div>
+                    <div class="sorting-message">
+                        {{ sortingMessage }}
+                      </div>
                     <div class="search-controls">
                         <label for="searchText">Search:</label>
                         <input type="text" id="searchText" v-model="searchText">
@@ -55,7 +58,8 @@
                     </figure>
                     <h2 v-text="subject.name"></h2>
                     <p v-text="subject.location"></p>
-                    <p>price: £{{subject.price}}</p>
+                    <p>Price: £{{subject.Price}}</p>
+                    <p>Spaces Available : {{ subject.availableInventory }}</p>
                     <p>
                         <span v-if="subject.availableInventory === cartCount(subject.id)"> Classes Booked!</span>
                         <span v-else-if="subject.availableInventory - cartCount(subject.id) < 5">
@@ -65,17 +69,24 @@
                     <button class="button" v-on:click="addToCart(subject)" v-if="canAddToCart(subject)">Add to
                         cart</button>
                     <button class="disabled" v-else>Add to cart</button>
-                </div>
+                    <div>
+                        <span v-for='n in subject.rating'>★</span>
+                        <span v-for='n in 5 - subject.rating'>☆</span>
+                      </div>
+                    </div>
             </div>
             <div class="checkout-page" v-if="!showsubject">
-                <p>This is the checkout page</p>
+                <p>Welcome to the Checkout Page</p>
                 <h2>Selected Subjects</h2>
+                <p v-if="cartItemCount > 0">You have selected {{ cartItemCount }} item{{ cartItemCount !== 1 ? 's' : '' }}.</p>
                 <ul>
                     <li v-for="(subject, index) in cartSubjects" :key="'cart-' + subject.id + '-' + index">
                         <img :src="subject.image" alt="Subject Image">
                         <p><strong>Name:</strong> {{ subject.name }}</p>
                         <p><strong>Location:</strong> {{ subject.location }}</p>
-                        <p><strong>Price:</strong> £{{ subject.price }}</p>
+                        <p><strong>Price:</strong> £{{ subject.Price }}</p>
+                        <p><strong>Spaces Available:</strong> {{ subject.spaces }}</p> 
+                         <p><strong>Selected Classes:</strong> {{ subject.selectedCount }}</p>
                         <button @click="removeSubjectFromCart(subject.id)">Remove</button>
                         <button @click="addToCartFromCheckout(subject.id)">Add</button>
                     </li>
@@ -134,7 +145,7 @@
                     <br>
                     <p>Name: {{order.firstName}}</p>
                     <br>
-                    <p>Phone Numner: {{order.PhoneNumber}}</p>
+                    <p>Phone Number: {{order.PhoneNumber}}</p>
                     <br>
                     <p>Address: {{order.address}}</p>
                     <br>

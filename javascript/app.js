@@ -3,8 +3,9 @@ let webstore = new Vue({
   data: {
     sitename: "Vue.js After Classes Depot",
     showsubject: true,
-    sortAttribute: "subject",
+    sortAttribute: "Price",
     sortOrder: "asc", //Default
+    sortingMessage: "Items currently sorted by Price in Ascending order",
     searchText: "",
     showMessage: false,
     isFormValid: false,
@@ -59,6 +60,12 @@ let webstore = new Vue({
       this.showsubject = true; // Set showsubject to true to display the main screen
       this.cart = []; // Clear the cart
       // this.resetOrder(); // Reset the order
+    },
+    updateSortingMessage() {
+      const criteria =
+        this.sortAttribute.charAt(0).toUpperCase() + this.sortAttribute.slice(1);
+      const order = this.sortOrder === "asc" ? "Ascending" : "Descending";
+      this.sortingMessage = `Items currently sorted by ${criteria} in ${order} order`;
     },
 
     showCheckout: function () {
@@ -121,6 +128,7 @@ let webstore = new Vue({
       this.order.firstName &&
       this.order.PhoneNumber;
     },
+   
 
     submitForm() {
       if (this.isFormValid) {
@@ -185,8 +193,8 @@ let webstore = new Vue({
                 return -1;
               return 0;
             });
-          case "price":
-            return subjects.sort((a, b) => a.price - b.price);
+          case "Price":
+            return subjects.sort((a, b) => a.Price - b.Price);
           case "availableInventory":
             return subjects.sort(
               (a, b) => a.availableInventory - b.availableInventory
@@ -211,7 +219,7 @@ let webstore = new Vue({
               return 0;
             });
           case "price":
-            return subjects.sort((a, b) => b.price - a.price);
+            return subjects.sort((a, b) => b.Price - a.Price);
           case "availableInventory":
             return subjects.sort(
               (a, b) => b.availableInventory - a.availableInventory
@@ -222,11 +230,39 @@ let webstore = new Vue({
       }
     },
 
+    // cartSubjects: function () {
+    //   return this.cart.map((itemId) => {
+    //     const subject = this.subject.find((subject) => subject.id === itemId);
+    //     return {
+    //       ...subject,
+    //       spaces: subject.availableInventory - this.cartCount(subject.id),
+    //     };
+    //   });
+    // },
+
+
     cartSubjects: function () {
-      return this.cart.map((itemId) => {
+      const selectedCounts = {};
+    
+      // Count the occurrences of each subject in the cart
+      this.cart.forEach((itemId) => {
+        selectedCounts[itemId] = (selectedCounts[itemId] || 0) + 1;
+      });
+    
+      // Create an array of unique subjects with their counts
+      const uniqueSubjects = [...new Set(this.cart)];
+    
+      // Map the unique subjects to include count information
+      return uniqueSubjects.map((itemId) => {
         const subject = this.subject.find((subject) => subject.id === itemId);
-        return subject;
+        const selectedCount = selectedCounts[itemId] || 0;
+        return {
+          ...subject,
+          spaces: subject.availableInventory - this.cartCount(subject.id),
+          selectedCount: selectedCount,
+        };
       });
     },
+    
   },
 });
