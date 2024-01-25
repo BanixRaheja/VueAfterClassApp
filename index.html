@@ -85,15 +85,15 @@
                         '' }}.</p>
                 </div>
                 <ul>
-                    <li v-for="(subject, index) in cartSubjects" :key="'cart-' + subject.id + '-' + index">
-                        <img :src="subject.image" alt="Subject Image">
-                        <p><strong>Name:</strong> {{ subject.name }}</p>
-                        <p><strong>Location:</strong> {{ subject.location }}</p>
-                        <p><strong>Price:</strong> £{{ subject.Price }}</p>
-                        <p><strong>Spaces Available:</strong> {{ subject.spaces }}</p>
-                        <p><strong>Selected Classes:</strong> {{ subject.selectedCount }}</p>
-                        <button @click="removeSubjectFromCart(subject.id)">Remove</button>
-                        <button @click="addToCartFromCheckout(subject.id)">Add</button>
+                    <li v-for="(lesson, index) in cartSubjects" :key="'cart-' + subject.id + '-' + index">
+                        <img :src="lesson.image" alt="Subject Image">
+                        <p><strong>Name:</strong> {{ lesson.name }}</p>
+                        <p><strong>Location:</strong> {{ lesson.location }}</p>
+                        <p><strong>Price:</strong> £{{ lesson.Price }}</p>
+                        <p><strong>Spaces Available:</strong> {{ lesson.spaces }}</p>
+                        <p><strong>Selected Classes:</strong> {{ lesson.selectedCount }}</p>
+                        <button @click="removeSubjectFromCart(lesson.id)">Remove</button>
+                        <button @click="addToCartFromCheckout(lesson.id)">Add</button>
                     </li>
                 </ul>
                 <h2>Checkout</h2>
