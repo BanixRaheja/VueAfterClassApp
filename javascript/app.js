@@ -38,7 +38,7 @@ let webstore = new Vue({
 
         const response = await fetch(url);
 
-        this.subject = await response.json();
+        this.lessons = await response.json();
       } catch (error) {
         this.error = error;
       } finally {
