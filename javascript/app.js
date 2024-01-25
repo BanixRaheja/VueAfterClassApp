@@ -3,24 +3,18 @@ let webstore = new Vue({
   data: {
     sitename: " After Classes Depot",
     showsubject: true,
+    loading: false,
+    error: null,
+    url: "https://webcoursework.eu-north-1.elasticbeanstalk.com",
     sortAttribute: "Price",
     sortOrder: "asc", //Default
     sortingMessage: "Items currently sorted by Price in Ascending order",
     searchText: "",
     showMessage: false,
     isFormValid: false,
-    states: ["Alabama", "Alaska", "Arizonz", "California", "Newvada"],
     order: {
       firstName: "",
       PhoneNumber: "",
-      address: "",
-      city: "",
-      zip: "",
-      state: "",
-      // lert
-      method: "",
-      sendGift: "Send as a gift",
-      dontSendGift: "Do not send as a Gift",
       firstNameValid: true,
       phoneNumberValid: true,
     },
@@ -32,10 +26,61 @@ let webstore = new Vue({
     firstNameValid: true,
     phoneNumberValid: true,
 
-    subject: lesson,
+    subject: [],
     cart: [], //array to store items in shopping cart
   },
   methods: {
+    async getLessons() {
+      try {
+        this.loading = true;
+
+        const url = `${this.url}/lessons/?search=${this.searchText}`;
+
+        const response = await fetch(url);
+
+        this.subject = await response.json();
+      } catch (error) {
+        this.error = error;
+      } finally {
+        this.loading = false;
+      }
+    },
+    async createNewOrder(order) {
+      try {
+        this.loading = true;
+
+        const url = `${this.url}/orders`;
+
+        const response = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(order),
+        });
+      } catch (error) {
+        this.error = error;
+      } finally {
+        this.loading = false;
+      }
+    },
+    async updateLesson({ subject_id, availableInventory }) {
+      try {
+        this.loading = true;
+
+        const url = `${this.url}/lessons/${subject_id}`;
+
+        const response = await fetch(url, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            availableInventory: availableInventory,
+          }),
+        });
+      } catch (error) {
+        this.error = error;
+      } finally {
+        this.loading = false;
+      }
+    },
     cartCount(id) {
       let count = 0;
       for (let i = 0; i < this.cart, length; i++) {
@@ -133,20 +178,20 @@ let webstore = new Vue({
       if (this.isFormValid) {
         alert("Order Submitted!");
         // Reset the cart and order form data
-        this.cart = [];
-        this.order = {
-          firstName: "",
-          PhoneNumber: "",
-          address: "",
-          city: "",
-          zip: "",
-          state: "",
-          method: "",
-          sendGift: "Send as a gift",
-          dontSendGift: "Do not send as a Gift",
-          firstNameValid: true,
-          phoneNumberValid: true,
-        };
+        this.cart.forEach(async (item) => {
+          await this.createNewOrder({
+            firstName: this.order.firstName,
+            PhoneNumber: this.order.PhoneNumber,
+            subject_id: subject.subjectId,
+            availableInventory: availableInventory
+          });
+
+          await this.updateLesson({
+            subject_id : subject.subjectId,
+            availableInventory: subject.availableInventory,
+          });
+        });
+
         this.showsubject = true;
         for (let i = 0; i < this.subject.length; i++) {
           this.subject[i].availableInventory = 5;
@@ -229,6 +274,8 @@ let webstore = new Vue({
       }
     },
 
+
+
     // cartSubjects: function () {
     //   return this.cart.map((itemId) => {
     //     const subject = this.subject.find((subject) => subject.id === itemId);
@@ -264,4 +311,16 @@ let webstore = new Vue({
     },
 
   },
+
+  created(){
+    this.getLessons();
+ },
+
+ watch: {
+   searchText: {
+     handler(val){
+       this.getLessons();
+     }
+   }
+ },
 });

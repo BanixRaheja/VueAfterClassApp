@@ -108,40 +108,6 @@
                         <span class="error-message" :class="{ 'error': !phoneNumberValid }">{{ errorMessages.PhoneNumber
                             }}</span>
                     </p>
-
-                    <p>
-                        <strong>Address:</strong>
-                        <input type="text" id="address" v-model="order.address" autocomplete="address" />
-                    </p>
-                    <p>
-                        <strong>City:</strong>
-                        <input type="text" id="city" v-model="order.city" />
-                    </p>
-
-                    <p>
-                        <strong>State:</strong>
-                        <select id="state" v-model="order.state">
-                            <option disabled value="">State</option>
-                            <option v-for="state in states" v-bind:value="state">
-                                {{state}}
-                            </option>
-                        </select>
-                    </p>
-                    <p>
-                        <strong>Zip/Postal Code:</strong>
-                        <input type="text" id="zip" v-model="order.zip" />
-                    </p>
-                    <p>
-                        <input type="checkbox" id="gift" value="true" v-model="order.gift"
-                            v-bind:true-value="order.sendGift" v-bind:false-value="order.dontSendGift">
-                        <label for="gift">Ship as a Gift?</label>
-                    </p>
-                    <p>
-                        <input type="radio" id="home" value="Home" v-model="order.method">
-                        <label for="home">Home</label>
-                        <input type="radio" id="business" value="Business" v-model="order.method">
-                        <label for="business">Business</label>
-                    </p>
                 </div>
                 <div class="order-information-section">
                     <h2>Order Information</h2>
@@ -149,18 +115,6 @@
                     <p>Name: {{order.firstName}}</p>
                     <br>
                     <p>Phone Number: {{order.PhoneNumber}}</p>
-                    <br>
-                    <p>Address: {{order.address}}</p>
-                    <br>
-                    <p>City: {{order.city}}</p>
-                    <br>
-                    <p>State: {{order.state}}</p>
-                    <br>
-                    <p>Zip: {{order.zip}}</p>
-                    <br>
-                    <p>Gift?: {{order.gift}}</p>
-                    <br>
-                    <p>Method: {{order.method}}</p>
                     <br>
                 </div>
 

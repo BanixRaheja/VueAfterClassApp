@@ -99,26 +99,6 @@ var lesson = [
     "message": "",
     "rating": 4,
   },
-  {
-    "id": 11,
-    "name": "Badminton Class",
-    "location": "Moorgate",
-    "Price": 35,
-    "image": "./Images/badminton.png",
-    "availableInventory": 5,
-    "message": "",
-    "rating": 5,
-  },
-  {
-    "id": 12,
-    "name": "Gymnastic Class",
-    "location": "Hendon",
-    "Price": 35,
-    "image": "./Images/gymnastic.png",
-    "availableInventory": 5,
-    "message": "",
-    "rating": 3,
-  }
 ]
 
 
