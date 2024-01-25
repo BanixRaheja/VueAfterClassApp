@@ -5,12 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>Coursework 1</title>
+    <title>
+        Coursework 1
+    </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style type="text/tailwindcss">
       @layer components {
         .responsive-container {
-          @apply px-4 mx-auto max-w-full lg:px-8 py-6;
+          @apply px-6 mx-auto max-w-full lg:px-12 py-4;
         }
       }
     </style>
@@ -19,12 +21,7 @@
         theme: {
           extend: {
             colors: {
-              primary: "#F59E0B",
-              secondary: "#10B981",
-              accent: "#3B82F6",
-              background: "#F3F4F6",
-              text: "#374151",
-              error: "#EF4444",
+              primary: "#1AB6EE",
             },
           },
         },
@@ -34,18 +31,48 @@
   <body>
     <div id="app">
       <header>
-        <nav class="bg-primary border-gray-300 dark:bg-gray-800 responsive-container">
-          <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+        <nav
+          class="bg-white border-gray-200 dark:bg-gray-800 responsive-container"
+        >
+          <div
+            class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
+          >
             <a href="javascript:void(0)" class="flex items-center">
-              <img src="https://ik.imagekit.io/fmxqscuev/icons8-lessons-64_pdvEMVgCW.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666292631783" class="mr-3 h-8 sm:h-10" alt="Flowbite Logo" />
-              <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Coursework</span>
+              <img
+                src="https://ik.imagekit.io/fmxqscuev/icons8-lessons-64_pdvEMVgCW.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666292631783"
+                class="mr-3 h-6 sm:h-9"
+                alt="Flowbite Logo"
+              />
+              <span
+                class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
+                >Coursework</span
+              >
             </a>
 
-            <button class="relative transition duration-200" :class="[cartLength <= 0 ? 'text-gray-500' : 'text-white']" :disabled="cartLength <= 0" @click.prevent="toggleCartDisplay">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+            <button
+              class="relative transition duration-200"
+              :class="[cartLength <= 0 ? 'text-gray-500' : 'text-white']"
+              :disabled="cartLength <= 0"
+              @click.prevent="toggleCartDisplay"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+                />
               </svg>
-              <span class="absolute -top-2 -right-2 w-4 h-4 flex justify-center items-center bg-accent text-white text-xs rounded-full">{{ cartLength }}</span>
+              <span
+                class="absolute -top-2 -right-2 w-4 h-4 flex justify-center items-center bg-primary text-white text-xs rounded-full"
+                >{{ cartLength }}</span
+              >
             </button>
           </div>
         </nav>
@@ -372,7 +399,11 @@
         </div>
       </transition>
     </div>
+
+
+
     <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
     <script type="module" src="./javascript/app.js"> </script>
+    
 </body>
 </html>
