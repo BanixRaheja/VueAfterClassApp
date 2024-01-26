@@ -322,7 +322,7 @@
                 <button
                   class="block w-full bg-primary p-2 rounded text-white font-semibold"
                   :class="{'opacity-50': !isCheckoutFormValid}"
-                  :disabled="!isCheckoutFormValid"
+                  :disabled="!isCheckoutFormValid"  @click="showAlert"
                 >
                   <div v-if="loading" class="flex h-5 w-5 m-auto relative">
                     <span
