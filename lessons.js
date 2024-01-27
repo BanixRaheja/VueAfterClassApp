@@ -1,4 +1,4 @@
-var lesson = [
+export default [
   {
     "id": 1,
     "name": "Math Class",
