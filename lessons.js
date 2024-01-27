@@ -99,7 +99,6 @@ var lesson = [
     "message": "",
     "rating": 4,
   },
-
 ]
 
 
