@@ -1,4 +1,4 @@
-export default [
+var lesson = [
   {
     "id": 1,
     "name": "Math Class",
@@ -99,6 +99,7 @@ export default [
     "message": "",
     "rating": 4,
   },
+
 ]
 
 
