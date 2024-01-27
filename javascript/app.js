@@ -87,10 +87,6 @@ new Vue({
         this.loading = false;
       }
     },
-    updateOrderInfo() {
-      this.orderInfo.name = this.checkoutForm.name.value;
-      this.orderInfo.phone = this.checkoutForm.phone.value;
-    },
     updateLessonSpaces(type, _id) {
       switch (type) {
         case "decrease":
@@ -168,12 +164,6 @@ new Vue({
         });
       });
 
-
-      // Reset name and phone after successful checkout
-      this.checkoutForm.name.value = '';
-      this.checkoutForm.phone.value = '';
-
-      
       this.checkedOut = true;
 
       this.toggleCartDisplay();
