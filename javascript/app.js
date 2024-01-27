@@ -176,7 +176,6 @@ new Vue({
 
       setTimeout(() => {
         this.checkedOut = false;
-        
       }, 3000);
     },
   },
