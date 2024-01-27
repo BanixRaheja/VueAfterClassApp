@@ -54,26 +54,36 @@ new Vue({
     async createNewOrder(order) {
       try {
         this.loading = true;
-
+    
         const url = `${this.url}/orders`;
-
+    
         const response = await fetch(url, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(order),
         });
+    
+        // Check if the request was successful (status code 2xx)
+        if (response.ok) {
+          // You can handle the successful response here if needed
+          console.log("Order created successfully");
+        } else {
+          // Handle non-successful response (status code other than 2xx)
+          console.error("Error creating order:", response.statusText);
+        }
       } catch (error) {
         this.error = error;
       } finally {
         this.loading = false;
       }
     },
+    
     async updateLesson({ lesson_id, spaces }) {
       try {
         this.loading = true;
-
+    
         const url = `${this.url}/lessons/${lesson_id}`;
-
+    
         const response = await fetch(url, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -81,12 +91,22 @@ new Vue({
             spaces: spaces,
           }),
         });
+    
+        // Check if the request was successful (status code 2xx)
+        if (response.ok) {
+          // You can handle the successful response here if needed
+          console.log("Lesson updated successfully");
+        } else {
+          // Handle non-successful response (status code other than 2xx)
+          console.error("Error updating lesson:", response.statusText);
+        }
       } catch (error) {
         this.error = error;
       } finally {
         this.loading = false;
       }
     },
+    
     updateLessonSpaces(type, _id) {
       switch (type) {
         case "decrease":
