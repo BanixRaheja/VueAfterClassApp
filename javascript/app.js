@@ -4,7 +4,7 @@ new Vue({
   data: {
     loading: false,
     error: null,
-    url: "https://coursework2.eu-north-1.elasticbeanstalk.com",
+    url: "https://webcoursework2.eu-north-1.elasticbeanstalk.com",
     searchText: "",
     sortBy: "subject",
     orderBy: "asc",
@@ -176,6 +176,7 @@ new Vue({
 
       setTimeout(() => {
         this.checkedOut = false;
+        
       }, 3000);
     },
   },
