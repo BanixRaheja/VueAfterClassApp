@@ -448,14 +448,14 @@ button:hover {
   width: 2rem;
   height: 2rem;
   margin-right: 0.75rem;
-  background-color: #F73212;
+  background-color:  #ff9a8a93;
   border-radius: 0.375rem;
 }
 
 .check-icon {
   width: 1.25rem;
   height: 1.25rem;
-  fill: #fff;
+  fill:  black;
 }
 
 .message-container {
