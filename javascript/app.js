@@ -124,8 +124,7 @@ new Vue({
       } else {
         if (lesson.spaces > 0) {
           this.cart = this.cart.map((item) => {
-            if (item._id === _id)
-              return { ...item, spaces: ++item.spaces };
+            if (item._id === _id) return { ...item, spaces: ++item.spaces };
             return item;
           });
         }
@@ -176,7 +175,6 @@ new Vue({
 
       setTimeout(() => {
         this.checkedOut = false;
-        
       }, 3000);
     },
   },
@@ -197,16 +195,13 @@ new Vue({
         switch (this.sortBy) {
           case "subject":
             return lessons.sort((a, b) => {
-              if (a.subject.toLowerCase() > b.subject.toLowerCase())
-                return 1;
-              if (a.subject.toLowerCase() < b.subject.toLowerCase())
-                return -1;
+              if (a.subject.toLowerCase() > b.subject.toLowerCase()) return 1;
+              if (a.subject.toLowerCase() < b.subject.toLowerCase()) return -1;
               return 0;
             });
           case "location":
             return lessons.sort((a, b) => {
-              if (a.location.toLowerCase() > b.location.toLowerCase())
-                return 1;
+              if (a.location.toLowerCase() > b.location.toLowerCase()) return 1;
               if (a.location.toLowerCase() < b.location.toLowerCase())
                 return -1;
               return 0;
@@ -229,18 +224,15 @@ new Vue({
         switch (this.sortBy) {
           case "subject":
             return lessons.sort((a, b) => {
-              if (a.subject.toLowerCase() > b.subject.toLowerCase())
-                return -1;
-              if (a.subject.toLowerCase() < b.subject.toLowerCase())
-                return 1;
+              if (a.subject.toLowerCase() > b.subject.toLowerCase()) return -1;
+              if (a.subject.toLowerCase() < b.subject.toLowerCase()) return 1;
               return 0;
             });
           case "location":
             return lessons.sort((a, b) => {
               if (a.location.toLowerCase() > b.location.toLowerCase())
                 return -1;
-              if (a.location.toLowerCase() < b.location.toLowerCase())
-                return 1;
+              if (a.location.toLowerCase() < b.location.toLowerCase()) return 1;
               return 0;
             });
           case "price":
@@ -260,8 +252,7 @@ new Vue({
     },
     isCheckoutFormValid() {
       return Object.keys(this.checkoutForm).every(
-        (key) =>
-          this.checkoutForm[key].value && !this.checkoutForm[key].error
+        (key) => this.checkoutForm[key].value && !this.checkoutForm[key].error
       );
     },
   },

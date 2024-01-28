@@ -6,7 +6,6 @@ body {
   background-color: #f1c3bc93;
 }
 
-
 /* Header styles */
 .navbar {
   background-color: #333;
@@ -50,8 +49,6 @@ body {
   right: 1rem;
   z-index: 999; /* Ensure it's on top of other elements if necessary */
 }
-
-
 
 .cart-count {
   background-color: #ff9a8a93;
@@ -125,7 +122,6 @@ body {
   font-size: 0.8rem;
 }
 
-
 /* Updated CSS for Filter and Order Container */
 .filter-container,
 .order-container {
@@ -140,7 +136,6 @@ body {
   font-weight: bold;
   margin-right: 1rem;
 }
-
 
 /* Lessons Container */
 .lessons-container {
@@ -167,8 +162,6 @@ body {
   align-items: center;
   transition: transform 0.3s ease-in-out;
 }
-
-
 
 .lesson-item:hover {
   transform: scale(1.05);
@@ -302,9 +295,6 @@ body {
   justify-content: center; /* Center the lessons horizontally */
 }
 
-
-
-
 .cart-item {
   border: 0.125rem solid #ddd;
   background-color: white;
@@ -335,14 +325,12 @@ body {
   margin-top: 1rem; /* Adjust the margin-top to create space between image and details */
 }
 
-
 .cart-actions {
   margin-top: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 
 /* Cart Summary Container */
 .cart-summary-container {
