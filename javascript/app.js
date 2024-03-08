@@ -46,7 +46,7 @@ new Vue({
 
       console.log("All Caches Deleted");
     },
-    
+
     unregisterAllServiceWorkers(){
       navigator.serviceWorker.getRegistrations().then(function (registrations) {
         for (let registration of registrations) {
@@ -54,6 +54,10 @@ new Vue({
         }
       });
       console.log("ServiceWorkers Unregistered");
+    },
+
+    reloadPage(){
+      window.location.reload();
     },
 
     async getLessons() {
