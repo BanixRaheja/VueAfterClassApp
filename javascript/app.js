@@ -56,10 +56,6 @@ new Vue({
       console.log("ServiceWorkers Unregistered");
     },
 
-    reloadPage(){
-      window.location.reload();
-    },
-
     async getLessons() {
       try {
         this.loading = true;
