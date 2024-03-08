@@ -37,6 +37,7 @@ new Vue({
   },
 
   methods: {
+    
     async getLessons() {
       try {
         this.loading = true;
@@ -178,6 +179,14 @@ new Vue({
         this.checkedOut = false;
       }, 3000);
     },
+
+    deleteAllCaches() {
+      caches.keys().then(function(names) {
+        for (let name of names )
+        caches.delete(name);
+      });
+      console.log("All Caches Deleted");
+    }
   },
 
   computed: {
