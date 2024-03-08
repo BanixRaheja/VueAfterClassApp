@@ -55,10 +55,11 @@ new Vue({
       });
       console.log("ServiceWorkers Unregistered");
     },
-
-    reloadPage(){
+    
+    reloadPage() {
       window.location.reload();
-    },
+       },
+
 
     async getLessons() {
       try {
