@@ -19,6 +19,7 @@ new Vue({
         value: "desc",
       },
     ],
+    serverURL: "https://webcoursework2.eu-north-1.elasticbeanstalk.com",
     cart: [],
     isCartDisplaying: false,
     checkedOut: false,
@@ -262,7 +263,7 @@ new Vue({
       navigator.serviceWorker.register("service-worker.js")
     }
       },
-      
+
   created() {
     this.getLessons();
   },

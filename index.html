@@ -57,6 +57,11 @@
       </header>
 
       <main class="mt-4">
+
+        <strong class="test-elem">HTTPS Test: </strong>
+        <a v-bind:href="serverURL" target="_blank">link</a>
+
+        
         <div v-if="!isCartDisplaying" id="lessons" class="responsive-container">
           <div class="search-container">
             <input
