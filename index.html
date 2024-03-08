@@ -66,6 +66,11 @@
           Delete All Caches
         </button>
 
+        <button @click="unregisterAllServiceWorkers" class="test-elem">
+          <span class="fab fa-uniregistry"></span>
+          Unregister All SeriveWorkers
+        </button>
+
         <div v-if="!isCartDisplaying" id="lessons" class="responsive-container">
           <div class="search-container">
             <input
