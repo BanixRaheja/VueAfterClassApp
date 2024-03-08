@@ -37,7 +37,15 @@ new Vue({
   },
 
   methods: {
-    
+
+    deleteAllCaches(){
+      caches.keys().then(function(names) {
+        for (let name of names)
+        caches.delete(name);
+      });
+
+      console.log("All Caches Deleted");
+    },
     async getLessons() {
       try {
         this.loading = true;
