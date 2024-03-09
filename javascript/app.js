@@ -257,12 +257,6 @@ new Vue({
     },
   },
 
-  created: function() {
-    if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js");
-    }
-  },
-
   created() {
     this.getLessons();
   },
