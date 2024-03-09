@@ -259,7 +259,9 @@ new Vue({
   
   created: function(){
 if ("serviceWorker" in navigator ) {
-  navigator.serviceWorker.register("service-worker.js")
+  navigator.serviceWorker.register("service-worker.js",{
+    scope: "https://github.com/BanixRaheja/VueAfterClassApp.git",
+  });
 }
   },
   created() {
