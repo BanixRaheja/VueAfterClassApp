@@ -19,7 +19,6 @@ new Vue({
         value: "desc",
       },
     ],
-    serverURL: "https://webcoursework2.eu-north-1.elasticbeanstalk.com",
     cart: [],
     isCartDisplaying: false,
     checkedOut: false,
@@ -37,30 +36,6 @@ new Vue({
   },
 
   methods: {
-
-    deleteAllCaches(){
-      caches.keys().then(function(names) {
-        for (let name of names)
-        caches.delete(name);
-      });
-
-      console.log("All Caches Deleted");
-    },
-
-    unregisterAllServiceWorkers(){
-      navigator.serviceWorker.getRegistrations().then(function (registrations) {
-        for (let registration of registrations) {
-          registration.unregister()
-        }
-      });
-      console.log("ServiceWorkers Unregistered");
-    },
-    
-    reloadPage() {
-      window.location.reload();
-       },
-
-
     async getLessons() {
       try {
         this.loading = true;
@@ -202,7 +177,6 @@ new Vue({
         this.checkedOut = false;
       }, 3000);
     },
-    
   },
 
   computed: {
@@ -283,12 +257,11 @@ new Vue({
     },
   },
 
-  created: function(){
-    if ("serviceWorker" in navigator ) {
-      navigator.serviceWorker.register("service-worker.js")
-    }
-      },
-
+    created: function(){
+if ("serviceWorker" in navigator ) {
+  navigator.serviceWorker.register("service-worker.js")
+}
+  },
   created() {
     this.getLessons();
   },
