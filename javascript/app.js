@@ -255,11 +255,18 @@ new Vue({
         (key) => this.checkoutForm[key].value && !this.checkoutForm[key].error
       );
     },
+  }, 
+  created: function(){
+    if ("serviceWorker" in navigator ) {
+      navigator.serviceWorker.register("service-worker.js")
+    }
   },
-
+    
   created() {
     this.getLessons();
   },
+
+      
 
   watch: {
     searchText: {
